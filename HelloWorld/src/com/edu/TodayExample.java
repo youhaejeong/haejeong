@@ -35,12 +35,22 @@ public class TodayExample {
 		System.out.println("몸무게를 입력하세요");
 		double Weghit = scn.nextDouble();
 		System.out.println("몸무게는: " + Weghit);
+		
+		
+		
+		//더블 몸무게 ?? // +- 5키로 영역 구한 후 
+		//if(weight+5>realWeight && weight<realWeight) { &&는 앞뒤 조건 모두 만족시켜야할것 
+		// system.out.println("적정몸무게입니다.");
+		// } else {
+		//   system.out.println("비정상입니다.");
+		
+	
 
-		if ((High - 100) * 0.9 < Weghit) {
-			System.out.println("과체중");
-		} else {
-			System.out.println("저체중");
-		}
+		//if ((High - 100) * 0.9 < Weghit) {
+			//System.out.println("과체중");
+		//} else {
+		//	System.out.println("저체중");
+		//}
 		scn.close();
 
 	}
