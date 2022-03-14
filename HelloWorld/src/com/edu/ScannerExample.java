@@ -16,7 +16,7 @@ class ScannerExample {   // com.edu.ScannerExample
 		
 		System.out.println("두수의 합은" + result + "입니다.");
 		
-		
+		System.out.println("두수의 합은" + (10 + 20) + "입니다.");
 		
 //		if(val % 2 == 0) {
 //			System.out.println("짝수입니다.");
