@@ -19,6 +19,6 @@ public class Work1 {
 		} else {
 		     System.out.println("두수의 차는" + (num1 - num2)+"입니다");
 		}
-		
-	}
+		scn.close();
+	} 
 }
