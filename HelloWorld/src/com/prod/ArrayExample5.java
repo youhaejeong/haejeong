@@ -17,7 +17,7 @@ public class ArrayExample5 {
 		System.out.println("홀수번째의 평균" +(sum / (double)cnt));
 	
 		
-		
+		//!= 제외하겠다 
 	}
 
 }
