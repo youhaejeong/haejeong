@@ -42,8 +42,8 @@ public class UserExample {
 		User[] users= {u1,u2,u3,u4,u5} ;
 		
 		for (int i = 0; i < users.length; i++) {
-			if(users[i].userRank == "A" && users[i].userPoint >= 1000 ) {
-				System.out.println("랭크가 A면서 1000포인트 이상인 회원 ID는" + users[i].userId);
+			if(users[i].getuserRank().equals("A") && users[i].getuserPoint() >= 1000 ) {
+				System.out.println("랭크가 A면서 1000포인트 이상인 회원 ID는" + users[i].getuserId());
 				
 			}
 		}
