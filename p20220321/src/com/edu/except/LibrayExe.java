@@ -6,7 +6,18 @@ import java.util.Scanner;
 //쿨래스 메인 => 메인메소드 포함 
 
 public class LibrayExe {
-	public static void main(String[] args) {
+	private static LibrayExe singleton = new LibrayExe();
+	private LibrayExe() {
+		
+	}
+	public static LibrayExe getInstance() {
+		return singleton;
+		
+	}
+//	public static void main(String[] args) {
+//	메인 메소드 대신에 런이라는 메소드를 통해 다른 클래스에서 사용하여 프로그램을 깔끔해보이도록 만듦
+
+	public void run() {
 		// 책제목,저자,가격 ->
 		// 리스트보여주기.
 		Scanner scn = new Scanner(System.in);
@@ -57,7 +68,7 @@ public class LibrayExe {
 				}
 
 			} else if (menu == 3) {
-				showMessage("프로그램을 종료합니다");
+				showMessage("프로그램을 종료합니다\n");
 				break;
 			}
 
@@ -67,7 +78,7 @@ public class LibrayExe {
 
 	}
 
-	public static void showMessage(String str) {
+	public void showMessage(String str) {
 		for (int i = 0; i < str.length(); i++) {
 			System.out.print(str.charAt(i));
 			try {
