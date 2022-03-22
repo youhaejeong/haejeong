@@ -3,6 +3,8 @@ package com.edu.except;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+//쿨래스 메인 => 메인메소드 포함 
+
 public class LibrayExe {
 	public static void main(String[] args) {
 		// 책제목,저자,가격 ->
@@ -46,14 +48,14 @@ public class LibrayExe {
 					}
 				}
 				showMessage("저장완료.\n");
-				
+
 			} else if (menu == 2) {
 				for (int i = 0; i < library.length; i++) {
 					if (library[i] != null) {
 						library[i].showInfo();// 빈칸이 아닌것만 책제목 등등을 불러오겟다
 					}
 				}
-				
+
 			} else if (menu == 3) {
 				showMessage("프로그램을 종료합니다");
 				break;
