@@ -42,13 +42,14 @@ public class Book {
 		this.price = price;
 	}
 	
-	public void bookInfo() {
-		System.out.println("=========================================");
-		System.out.println("책제목: " + this.title +"\n");
-		System.out.println("저자: " + this.author + "\n");
-		System.out.println("출판사: " + this.make +"\n");
-		System.out.println("가격: "+ this.price +"\n");
-		System.out.println("=========================================");
+	public String bookInfo() {
+		String str = "=========================================\n";
+		str +="책제목: " + this.title +"\n";
+		str +="저자: " + this.author + "\n";
+		str +="출판사: " + this.make +"\n";
+		str +="가격: "+ this.price +"\n";
+		str +="=========================================";
+		return str;
 	}
 	 
 }

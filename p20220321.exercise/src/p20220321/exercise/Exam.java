@@ -10,7 +10,7 @@ public class Exam {
 
 	public static void main(String[] args) {
 		System.out.println("책제목을 입력하세요");
-		String title = scn.next();
+		String title = scn.nextLine();
 		System.out.println("저자를 입력하세요");
 		String author = scn.next();
 		System.out.println("출판사를 입력하세요");
