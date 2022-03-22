@@ -24,4 +24,28 @@ public class MysqlDao implements Dao {
 		System.out.println("MysqlDB에서 삭제합니다");
 	}
 
+	@Override
+	public void powerOn() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void powerOff() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void end() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
