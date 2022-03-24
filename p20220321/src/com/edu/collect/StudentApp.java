@@ -74,6 +74,7 @@ public class StudentApp { // 여기에 인터페이스를 연결해버리면 본
 			return searchList;
 		}
 	}// end of StuendtServiceImpl
+
 	public void execute() {
 		StudentService service = new StudentServiceImpl(); // 구현하는 클래스를 바꿔줬을때 나머지는 똑같이 쓰면됨.
 		// 위의 것 ==> 타입 이름 = new 구현하는 클래스();
@@ -82,9 +83,7 @@ public class StudentApp { // 여기에 인터페이스를 연결해버리면 본
 		while (true) {
 			System.out.println("1.추가 2.리스트 3.한건조회.4.수정.5.삭제.6.성명조회.9.종료\n");
 			System.out.println("선택>>>> \n");
-
 			int menu = scn.nextInt();
-
 			if (menu == 1) {
 				// 학생정보 추가 입력.: 학생번호,이름,영어점수,국어점수
 				System.out.println("학생번호를 입력하세요..");
@@ -95,17 +94,14 @@ public class StudentApp { // 여기에 인터페이스를 연결해버리면 본
 				int engScore = scn.nextInt();
 				System.out.println("국어점수를 입력하세요..");
 				int korScore = scn.nextInt();
-
 				Student s1 = new Student(stuNo, stuName, engScore, korScore);
 				service.insertStudent(s1);
 				System.out.println("저장이 완료되었습니다...\n");
-
 			} else if (menu == 2) {
 				List<Student> list = service.studentList();
 				for (Student s : list) { // for문 안에 있는것은 확장코드(리스트컬렉선에 담겨져있는만큼만 반복
 					System.out.println(s.toString());
 				}
-
 			} else if (menu == 3) { // 한건 조회
 				System.out.println("조회하실 학생 번호를 입력하세요..");
 				int stuNo = scn.nextInt();
@@ -148,15 +144,13 @@ public class StudentApp { // 여기에 인터페이스를 연결해버리면 본
 				System.out.println("조회하실 학생의 성명을 입력하세요..");
 				String stuName = scn.next();
 				List<Student> list = service.searchStudent(stuName);
-				for(Student s : list) {
-						System.out.println(s.toString());
+				for (Student s : list) {
+					System.out.println(s.toString());
 				}
-				
 //				List<Student> list = service.studentList();
-//				for (Student s : list) { // for문 안에 있는것은 확장코드(리스트컬렉선에 담겨져있는만큼만 반복
+//				for (Student s : list) { // for문 안에 있는것은 확장코드(리스트컬렉션 에 담겨져있는만큼만 반복
 //					System.out.println(s.toString());
 //				}
-				
 				// 전체리스트처럼 해당학생만 조회
 			} else if (menu == 9) {
 				System.out.println("프로그램을 종료합니다.\n");

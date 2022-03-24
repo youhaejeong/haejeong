@@ -9,6 +9,6 @@ public class FunctionExample {
 		ToIntFunction<Student> func = (student) -> student.getEngScore() + student.getKorScore();
 
 		int result = func.applyAsInt(new Student(101, "키위", 80, 90));
-		System.out.println("결과괎은 " + result);
+		System.out.println("결과값은 " + result);
 	}
 }

@@ -21,7 +21,7 @@ public class MapExample {
 
 		Set<String> keySet = map.keySet(); // map컬렉션에 저장된 요소들의 키에 해당 값을 Set컬렉션에 담아줌
 		// 1)
-		Iterator<String> iter = keySet.iterator();
+		Iterator<String> iter = keySet.iterator();//반복자
 
 		while (iter.hasNext()) {
 			String key = iter.next();

@@ -21,8 +21,6 @@ public class Exam5 {
 //		new Book(title,author,press,price); //이것이 인스턴스
 		book.showInfo();
 		
-		
-		
 	}
 //	scn.close();
 

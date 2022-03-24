@@ -16,7 +16,7 @@ public class ListExample {
 		strAry.add("즐거운자바");
 		strAry.add("원숭이도 할수있는 자바");
 		strAry.set(1, "너무 어색한 자바"); //인덱스 1의 위치값을 "너무어색한자바"로 수정 
-		
+		strAry.get(0);		
 //		strAry.remove(0); //0번째 인덱스값을 삭제하겠습니다. 
 		strAry.remove("원숭이도 할수있는 자바"); //안에 값을 지정할수도있음 이때 지울려는 값이 없으면 안지워짐~
 		strAry.clear(); //안나오게 만듦~
