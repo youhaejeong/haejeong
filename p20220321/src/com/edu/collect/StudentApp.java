@@ -10,10 +10,10 @@ public class StudentApp { // 여기에 인터페이스를 연결해버리면 본
 
 	// 기본생성자
 	public StudentApp() {
-		list.add(new Student(101, "키위새", 50, 60));
-		list.add(new Student(102, "짱구", 70, 80));
-		list.add(new Student(103, "유리", 90, 70));
-		list.add(new Student(104, "유리", 80, 60));
+//		list.add(new Student(101, "키위새", 50, 60));
+//		list.add(new Student(102, "짱구", 70, 80));
+//		list.add(new Student(103, "유리", 90, 70));
+//		list.add(new Student(104, "유리", 80, 60));
 	}
 
 	// 클래스 안의 멤버클래스로 선언 //클래스안의 클레스를 선언한 이유는 위의 list 에 접근하기 쉽게하기 위해
@@ -72,6 +72,11 @@ public class StudentApp { // 여기에 인터페이스를 연결해버리면 본
 				// 같은이름이 있는지 찾아보고 있으면 searchList.add()
 			}
 			return searchList;
+		}
+
+		@Override
+		public void saveToFile() {
+System.exit(0);			
 		}
 	}// end of StuendtServiceImpl
 
@@ -154,6 +159,7 @@ public class StudentApp { // 여기에 인터페이스를 연결해버리면 본
 				// 전체리스트처럼 해당학생만 조회
 			} else if (menu == 9) {
 				System.out.println("프로그램을 종료합니다.\n");
+				service.saveToFile();
 				break;
 			}
 		} // end of while()

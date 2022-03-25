@@ -12,5 +12,6 @@ public interface StudentService {
 	public void deleteStudent(int sno); //한건삭제
 	public List<Student> searchStudent(String name);
 	//searchStudent 는 집가서 동명이인이 있을수있기때문에 여러건을 반환하겠슴다
+	public void saveToFile();
 
 }
