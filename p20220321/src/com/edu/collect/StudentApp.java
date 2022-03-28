@@ -2,10 +2,11 @@ package com.edu.collect;
 
 import java.util.*;
 
-public class StudentApp { // 여기에 인터페이스를 연결해버리면 본래의 목적을 잃어버림
+public class StudentApp {
+	// 여기에 인터페이스를 연결해버리면 본래의 목적을 잃어버림
 	// 필드 두개 선언
+	// 인스턴스 하나 만들어서 진행
 	List<Student> list = new ArrayList<Student>(); // list에 값을 담을 예정 //배열처럼
-	// 아니 구냥 전반적으로 이해가 잘 안가눈뎀,,,, // 인스턴스 하나 만들어서 진행
 	Scanner scn = new Scanner(System.in);
 
 	// 기본생성자
@@ -76,12 +77,13 @@ public class StudentApp { // 여기에 인터페이스를 연결해버리면 본
 
 		@Override
 		public void saveToFile() {
-System.exit(0);			
+			System.exit(0);
 		}
 	}// end of StuendtServiceImpl
-
+	//메인기능 담당하는 execute()
 	public void execute() {
-		StudentService service = new StudentServiceImpl(); // 구현하는 클래스를 바꿔줬을때 나머지는 똑같이 쓰면됨.
+		StudentService service = new StudentServiceImpl(); 
+		service  = new StudentServiceFile();
 		// 위의 것 ==> 타입 이름 = new 구현하는 클래스();
 		// 기능 구현
 		// menu : 1.추가 2.리스트 3.한건조회.4.수정.9.종료

@@ -7,7 +7,7 @@ public class DmbCellphone extends Cellphone {
 		super(); //부모꺼 가져옴쓰
 		this.channel = channel;
 	}
-	void turnOnDmb
+//	void turnOnDmb
 
 
 }

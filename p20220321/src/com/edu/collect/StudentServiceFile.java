@@ -1,12 +1,35 @@
 package com.edu.collect;
 
 import java.io.*;
+
+//StudentServiceImpl (중첩클래스의 기능 대체)
+//입력,수정,삭제 => 파일에 저장이 되도록 
 import java.util.*;
 
 public class StudentServiceFile implements StudentService {
 
 	List<Student> list = new ArrayList<Student>();
 	File file;
+
+	// 기본생성자에 파일에 저장되어 있는 파일을 읽어서 리스트 값을 더해줌
+	public StudentServiceFile() {
+		try {
+			FileReader fr = new FileReader("studentList.data");
+			BufferedReader br = new BufferedReader(fr);
+			String readBuffer = null;
+			while ((readBuffer = br.readLine()) != null) {
+				String[] contents = readBuffer.split(",");
+				// 컴마를 기준으로 분류 ex) 홍길동,101,80,90
+//			contents[0] <= 101, contents[1]<= 90, contents[3] <=80
+				list.add(new Student(Integer.parseInt(contents[0]), contents[1], Integer.parseInt(contents[2]),
+						Integer.parseInt(contents[3])));
+			}
+			br.close();
+			fr.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public void insertStudent(Student student) {
@@ -64,11 +87,11 @@ public class StudentServiceFile implements StudentService {
 		// 작성했던 ArrayList<Student> list의 값을 파일에 저장
 		try {
 			FileWriter fw = new FileWriter("studentList.data");
-			BufferedWriter bw = new BufferedWriter(fw);
+			BufferedWriter bw = new BufferedWriter(fw);// 보조스트림의 생성자의 매개값으로 기본스트림.
 
 			for (Student stud : list) {
-				bw.write(stud.getStuNo() + ", " + stud.getStuName() + ", " + stud.getEngScore() + ", "
-						+ stud.getKorScore());
+				bw.write(stud.getStuNo() + "," + stud.getStuName() + "," + stud.getEngScore() + "," //
+						+ stud.getKorScore() + "\n");
 			}
 			bw.close();
 			fw.close();

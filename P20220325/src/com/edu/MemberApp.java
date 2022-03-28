@@ -49,7 +49,7 @@ public class MemberApp {
 			try {
 				System.out.println("1.등록 2.수정 3.전체리스트 9.종료");
 				System.out.println("선택>>> ");
-				menu = scn.nextInt();
+				menu = scn.nextInt(); //등록
 
 				if (menu == 1) {
 						int menu2 = 0;
