@@ -50,8 +50,9 @@ public class MemberApp {
 			int menu = 0;
 			try {
 				menu = scn.nextInt(); // 등록
-			} catch (Exception e) {
-
+				
+			} catch (InputMismatchException e) {
+				System.out.println("숫자를 입력하세요..");
 			}
 			if (menu == 1) {
 				System.out.println("1.도서회원 2.축구회원 3.수영회원");
@@ -69,23 +70,23 @@ public class MemberApp {
 					String bookName = scn.next();
 					System.out.println("강의실>>> ");
 					String className = scn.next();
-					BookMember mem = new BookMember(memberId, memName, phone, bookName, className);
+					Member mem = new BookMember(memberId, memName, phone, bookName, className);
 					service.addMember(mem);
 
-				} else if (menu == 2) {
+				} else if (menu2 == 2) {
 					System.out.println("코치이름>>> ");
 					String coachName = scn.next();
 					System.out.println("락커룸>>> ");
 					String rockName = scn.next();
-					SoccerMember mem = new SoccerMember(memberId, memName, phone, coachName, rockName);
+					Member mem = new SoccerMember(memberId, memName, phone, coachName, rockName);
 					service.addMember(mem);
 
-				} else if (menu == 3) {
+				} else if (menu2 == 3) {
 					System.out.println("강사이름>>> ");
 					String teachName = scn.next();
 					System.out.println("수영등급>>> ");
 					String grade = scn.next();
-					SoccerMember mem = new SoccerMember(memberId, memName, phone, teachName, grade);
+					Member mem = new SwimMember(memberId, memName, phone, teachName, grade);
 					service.addMember(mem);
 
 				} else {
