@@ -43,13 +43,16 @@ public class MemberApp {
 		// 도서반 =>기본정보 반장이름 강의실정보 ==> 리스트에 추가
 		// 수영반 =>기본정보 강사이름 등급
 		// 축구반 => 기본정보 강사이름 락커등급
-
+		MemberService service = new MemberServiceImpl();
 		while (true) {
 			System.out.println("1.등록 2.수정 3.전체리스트 9.종료");
 			System.out.println("선택>>> ");
+			int menu = 0;
+			try {
+				menu = scn.nextInt(); // 등록
+			} catch (Exception e) {
 
-			int menu = scn.nextInt(); // 등록
-
+			}
 			if (menu == 1) {
 				System.out.println("1.도서회원 2.축구회원 3.수영회원");
 				int menu2 = scn.nextInt();
@@ -66,21 +69,36 @@ public class MemberApp {
 					String bookName = scn.next();
 					System.out.println("강의실>>> ");
 					String className = scn.next();
-
-					members.add(new BookMember(memberId, memName, phone, bookName, className));
+					BookMember mem = new BookMember(memberId, memName, phone, bookName, className);
+					service.addMember(mem);
 
 				} else if (menu == 2) {
+					System.out.println("코치이름>>> ");
+					String coachName = scn.next();
+					System.out.println("락커룸>>> ");
+					String rockName = scn.next();
+					SoccerMember mem = new SoccerMember(memberId, memName, phone, coachName, rockName);
+					service.addMember(mem);
 
 				} else if (menu == 3) {
+					System.out.println("강사이름>>> ");
+					String teachName = scn.next();
+					System.out.println("수영등급>>> ");
+					String grade = scn.next();
+					SoccerMember mem = new SoccerMember(memberId, memName, phone, teachName, grade);
+					service.addMember(mem);
 
 				} else {
-
+					System.out.println("잘못입력하셨습니다. ");
 				}
 
 			} else if (menu == 2) {
 
 			} else if (menu == 3) {
-
+				List<Member> member = service.memberList();
+				for (Member s : member) {
+					System.out.println(s.toString());
+				}
 			} else if (menu == 9) {
 				System.out.println("프로그램을 종료합니다. \n");
 				break;

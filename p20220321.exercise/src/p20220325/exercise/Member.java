@@ -7,13 +7,14 @@ public class Member {
 	private String phone;
 	
 	
-//생성자
+//생
 	public Member(int memberId, String memberName, String phone) {
+		super();
 		this.memberId = memberId;
 		this.memberName = memberName;
 		this.phone = phone;
 	}
-//메소드
+//메소드ㅡ
 	public int getMemberId() {
 		return memberId;
 	}

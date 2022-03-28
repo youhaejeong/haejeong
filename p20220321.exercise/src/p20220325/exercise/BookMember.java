@@ -2,8 +2,8 @@ package p20220325.exercise;
 
 public class BookMember extends Member {
 
-	String bookName;
-	String className;
+	private String bookName;
+	private String className;
 
 	public BookMember(int memberId, String memberName, String phone, String bookName, String className) {
 		super(memberId, memberName, phone);
