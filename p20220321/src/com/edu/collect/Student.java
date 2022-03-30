@@ -41,7 +41,7 @@ public class Student { //메인메소드 없음!
 		return korScore;
 	}
 	public void setKorScore(int korScore) {
-		this.korScore = korScore;
+		this.korScore = korScore; 
 	}
 	//toString() => 재정의 오버라이팅
 

@@ -80,10 +80,13 @@ public class StudentApp {
 			System.exit(0);
 		}
 	}// end of StuendtServiceImpl
-	//메인기능 담당하는 execute()
+		// 메인기능 담당하는 execute()
+
 	public void execute() {
-		StudentService service = new StudentServiceImpl(); 
-		service  = new StudentServiceFile();
+		StudentService service = null;
+//		                         new StudentServiceImpl();
+//		               service  = new StudentServiceFile();
+		service = new StudentServiceOracle();
 		// 위의 것 ==> 타입 이름 = new 구현하는 클래스();
 		// 기능 구현
 		// menu : 1.추가 2.리스트 3.한건조회.4.수정.9.종료
@@ -139,14 +142,8 @@ public class StudentApp {
 			} else if (menu == 5) {
 				System.out.println("삭제하실 학생 번호를 입력하세요..");
 				int stuNo = scn.nextInt();
-				Student student = service.getStudent(stuNo);
-				if (student == null) {
-					service.deleteStudent(stuNo);
-					System.out.println("삭제하실 학생을 찾을수가 없습니다..");
-				} else {
-					service.deleteStudent(stuNo);
-					System.out.println("처리가 완료 되었습니다..\n");
-				}
+				service.deleteStudent(stuNo);
+				System.out.println("너굴맨이 처리했따구!");
 			} else if (menu == 6) {
 				System.out.println("조회하실 학생의 성명을 입력하세요..");
 				String stuName = scn.next();
