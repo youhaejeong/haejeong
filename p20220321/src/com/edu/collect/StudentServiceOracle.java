@@ -79,7 +79,6 @@ public class StudentServiceOracle extends DAO implements StudentService {
 		} finally {
 			disconnect();
 		}
-
 	}
 
 	@Override
@@ -124,7 +123,7 @@ public class StudentServiceOracle extends DAO implements StudentService {
 				stu.setEngScore(rs.getInt("eng_score"));
 				stu.setKorScore(rs.getInt("kor_score"));
 				list.add(stu);
-			} 
+			}
 
 		} catch (SQLException e) {
 			e.printStackTrace();
