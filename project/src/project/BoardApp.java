@@ -16,9 +16,10 @@ public class BoardApp {
 		BoardService service = new BoardServiceOracle();
 		while (true) {
 			System.out.println("===너굴맨 게시판 메뉴 ======");
-			System.out.println("1.회원가입 2.로그인 ");;
+			System.out.println("1.회원가입 2.로그인 ");
+			;
 			int menu = 0;
-			if
+//			if
 
 		}
 //		BoardService service = null;
@@ -68,6 +69,6 @@ public class BoardApp {
 //				}
 //			}
 //		} // end of while
-		System.out.println("end of program");
+//		System.out.println("end of program");
 	}
 }
