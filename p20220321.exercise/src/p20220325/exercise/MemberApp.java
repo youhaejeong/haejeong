@@ -50,14 +50,19 @@ public class MemberApp {
 			int menu = 0;
 			try {
 				menu = scn.nextInt(); // 등록
-				
+
 			} catch (InputMismatchException e) {
-				System.out.println("숫자를 입력하세요..");
+				System.out.println("잘못입력했슴다!!!!!");
 			}
 			if (menu == 1) {
 				System.out.println("1.도서회원 2.축구회원 3.수영회원");
-				int menu2 = scn.nextInt();
+				int menu2 = 0;
+				try {
+					menu2 = scn.nextInt();
 
+				} catch (InputMismatchException e) {
+					System.out.println("값을 입력하세용");
+				}
 				// 공통질문이기떄문에 이프문 위에 입력하여 반복할수있게함
 				System.out.println("회원아이디를 입력하세요");
 				int memberId = scn.nextInt();
