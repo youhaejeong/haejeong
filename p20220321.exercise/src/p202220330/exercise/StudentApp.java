@@ -54,8 +54,8 @@ public class StudentApp {
 		@Override
 		public List<Student> searchStudent(String name) {
 			List<Student> searchList = new ArrayList<Student>();
-			for(int i=0; i<list.size(); i++) {
-				if(list.get(i))
+			for (int i = 0; i < list.size(); i++) {
+//				if(list.get(i))
 			}
 			return null;
 		}

@@ -104,7 +104,6 @@ public class StudentServiceOracle extends DAO implements StudentService {
 		List<Student> list = new ArrayList<Student>();
 		Student stu = null;
 
-//		Student stu = null;
 		// 학생이름으로 조회
 		// 모르면놔둠
 		conn = getConnect();
