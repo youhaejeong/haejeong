@@ -133,7 +133,7 @@ public class EmpDAO extends DAO {
 			e.printStackTrace();
 		} finally { // 오류가 나더라도 강제 실행
 			disconnect();
-		}
+		}//
 
 	}
 }
