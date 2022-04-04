@@ -11,4 +11,6 @@ public interface BoardService {
 
 	public void deleteBoard(String bno);
 
+	public Board getBoard(int writeId);
+
 }

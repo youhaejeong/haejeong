@@ -1,31 +1,23 @@
 package project;
 
 public class Board {
-	private String boardDate;
+
 	private int boardNum;
 	private String boardWrite; // 작성자
 	private String BoardName; // 제목
-	private String writeId;
+	private int writeId;
+	public static int lastIndex = 1;
 
 	public Board() {
 
 	}
 
-	public Board(String boardDate, int boardNum, String boardWrite, String boardName, String writeId) {
+	public Board(int boardNum, String boardWrite, String boardName, int writeId) {
 		super();
-		this.boardDate = boardDate;
 		this.boardNum = boardNum;
 		this.boardWrite = boardWrite;
 		BoardName = boardName;
 		this.writeId = writeId;
-	}
-
-	public String getBoardDate() {
-		return boardDate;
-	}
-
-	public void setBoardDate(String boardDate) {
-		this.boardDate = boardDate;
 	}
 
 	public int getBoardNum() {
@@ -52,13 +44,12 @@ public class Board {
 		BoardName = boardName;
 	}
 
-	public String getWriteId() {
+	public int getWriteId() {
 		return writeId;
 	}
 
-	public void setWriteId(String writeId) {
+	public void setWriteId(int writeId) {
 		this.writeId = writeId;
 	}
-
 
 }

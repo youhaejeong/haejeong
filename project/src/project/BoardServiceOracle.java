@@ -13,11 +13,10 @@ public class BoardServiceOracle extends DAO implements BoardService {
 				+ "values(?,?,?,?,?)";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setString(1, board.getBoardDate());
 			psmt.setInt(2, board.getBoardNum());
 			psmt.setString(3, board.getBoardWrite());
 			psmt.setString(4, board.getBoardName());
-			psmt.setString(5, board.getWriteId());
+			psmt.setInt(5, board.getWriteId());
 			int m = psmt.executeUpdate();
 			System.out.println(m + "건을 너굴맨이 입력 완료!");
 
@@ -40,10 +39,9 @@ public class BoardServiceOracle extends DAO implements BoardService {
 			while (rs.next()) {
 				Board bo = new Board();
 				bo.setBoardNum(rs.getInt("board_num"));
-				bo.setWriteId(rs.getString("board_writeid"));
+				bo.setWriteId(rs.getInt("board_writeid"));
 				bo.setBoardName(rs.getString("board_name"));
 				bo.setBoardWrite(rs.getString("borad_write"));
-				bo.setBoardDate(rs.getString("board_date"));
 
 				list.add(bo);
 
@@ -68,7 +66,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, board.getBoardName());
 			psmt.setString(2, board.getBoardWrite());
-			psmt.setString(3, board.getWriteId());
+			psmt.setInt(3, board.getWriteId());
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건을 너굴맨이 수정했다귯!");
 		} catch (SQLException e) {
@@ -92,6 +90,19 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		} finally {
 			disconnect();
 		}
+	}
+
+	@Override
+	public Board getBoard(int bno) {
+		List<Board> list = new ArrayList<Board>();
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i).getBoardNum() == bno) {
+				return list.get(i);
+			}
+
+		}
+
+		return null;
 	}
 
 }
