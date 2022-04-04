@@ -19,6 +19,10 @@ public class BoardApp {
 			System.out.println("1.회원가입 2.로그인 ");
 			;
 			int menu = 0;
+			if (menu == 1 ) {
+				//회원가입
+				
+			}
 //			if
 
 		}
