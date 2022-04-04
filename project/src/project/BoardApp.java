@@ -19,8 +19,8 @@ public class BoardApp {
 		while (true) {
 			System.out.println("===너굴맨 게시판 메뉴 ======");
 			System.out.println("1.회원가입 2.로그인 ");
-			;
 			int menu = 0;
+			menu=scn.nextInt();
 			if (menu == 1) {
 				// 회원가입
 
@@ -28,6 +28,7 @@ public class BoardApp {
 				int menu2 = 0;
 				System.out.println("====너굴맨의 게시판 선택=====");
 				System.out.println("1.목록  2.작성  3.수정  4.삭제 9.종료");
+				menu2=scn.nextInt();
 				if (menu2 == 1) {
 					List<Board> list = service.BoardList();
 					for (Board b : list) {
@@ -39,6 +40,13 @@ public class BoardApp {
 					LocalDate now = LocalDate.now();
 					System.out.println(now);
 					
+					System.out.println("내용을 입력하세요");
+					String boardWrite=scn.next();
+					System.out.println("제목을입력하세요");
+					String boardName=scn.next();
+					Board board = new Board(now,boardWrite,boardName); //여기 물어볼것
+					service.insertBoard(board);
+					System.out.println("너굴맨 저장!!!");
 					
 				} else if (menu2 == 3) {
 					// 수정
@@ -51,13 +59,13 @@ public class BoardApp {
 					Board board = service.getBoard(WriteId);
 					if (board == null) {
 						@SuppressWarnings("null")
-						Board b1 = new Board((Integer) null, boWrite, boName, WriteId);
+						Board b1 = new Board(null,(Integer) null, boWrite, boName, WriteId);
 						service.modifyBoard(b1);
 						System.out.println("수정할게시글을 찾을수없어요");
 
 					} else {
 						@SuppressWarnings("null")
-						Board b1 = new Board((Integer) null, boWrite, boName, WriteId);
+						Board b1 = new Board(null,(Integer) null, boWrite, boName, WriteId);
 						service.modifyBoard(b1);
 						System.out.println("너굴맨이 수정햇다구요!");
 					}
@@ -72,9 +80,6 @@ public class BoardApp {
 					break;
 				}
 			}
-
-//			if
-
 		} // end of while
 		System.out.println("end of prog");
 //		BoardService service = null;

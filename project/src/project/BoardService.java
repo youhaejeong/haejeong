@@ -3,6 +3,7 @@ package project;
 import java.util.List;
 
 public interface BoardService {
+	public void boardNum(Board board);
 	public void insertBoard(Board board);
 
 	public List<Board> BoardList();

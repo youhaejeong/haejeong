@@ -5,14 +5,35 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardServiceOracle extends DAO implements BoardService {
+	@Override
+	public void boardNum(Board board) {
+		conn = getConnect();
+		String sql1 = "select max(board_num) from board_inf";
+		try {
+			psmt = conn.prepareStatement(sql1);
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				Board bo = new Board();
+				bo.setBoardNum(rs.getInt("board_num"));
+
+			}
+
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		} finally {
+			disconnect();
+
+		}
+	}
 
 	@Override
 	public void insertBoard(Board board) {
-		conn = getConnect();
+
 		String sql = " insert into board_inf(board_date,board_num,board_write,board_name,board_writeid)\r\n"
 				+ "values(?,?,?,?,?)";
 		try {
 			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, board.getDate());
 			psmt.setInt(2, board.getBoardNum());
 			psmt.setString(3, board.getBoardWrite());
 			psmt.setString(4, board.getBoardName());

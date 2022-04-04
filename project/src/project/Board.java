@@ -1,7 +1,7 @@
 package project;
 
 public class Board {
-
+private String date;
 	private int boardNum;
 	private String boardWrite; // 작성자
 	private String BoardName; // 제목
@@ -12,12 +12,18 @@ public class Board {
 
 	}
 
-	public Board(int boardNum, String boardWrite, String boardName, int writeId) {
+	public Board(String date,int boardNum, String boardWrite, String boardName, int writeId) {
 		super();
+		this.date=date;
 		this.boardNum = boardNum;
 		this.boardWrite = boardWrite;
-		BoardName = boardName;
+		this.BoardName = boardName;
 		this.writeId = writeId;
+	}
+
+	public Board(String boardWrite, String boardName) {
+		this.boardWrite = boardWrite;
+		this.BoardName = boardName;
 	}
 
 	public int getBoardNum() {
@@ -50,6 +56,14 @@ public class Board {
 
 	public void setWriteId(int writeId) {
 		this.writeId = writeId;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 }
