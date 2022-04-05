@@ -47,8 +47,6 @@ public class BoardApp {
 					System.out.println("1.목록  2.작성  3.수정  4.삭제 9.종료");
 					menu2 = scn.nextInt();
 					if (menu2 == 1) {
-						LocalDate now = LocalDate.now();
-						System.out.println(now);
 						List<Board> list = service.BoardList();
 						for (Board b : list) {
 							System.out.println(b.toString());
@@ -57,22 +55,21 @@ public class BoardApp {
 					} else if (menu2 == 2) {
 
 						// 작성
-						LocalDate now = LocalDate.now();
-						System.out.println(now);
-						System.out.println("내용을 입력하세요");
-						String boardWrite = scn.next();
 						System.out.println("제목을입력하세요");
 						String boardName = scn.next();
+						scn.nextLine();
+						System.out.println("내용을 입력하세요");
+						String boardWrite = scn.next();
+						scn.nextLine();
 						System.out.println("닉네임을 입력하세요");
 						int writeId = scn.nextInt();
-						Board board = new Board(now, boardWrite, boardName, writeId);
+						Board board = new Board(boardWrite, boardName, writeId);
 						service.insertBoard(board);
 						System.out.println("너굴맨 저장!!!");
 
 					} else if (menu2 == 3) {
 						// 수정
-						LocalDate now = LocalDate.now();
-						System.out.println(now);
+
 						System.out.println("수정하실 작성자의 아이디를 선택하세요");
 						int WriteId = scn.nextInt();
 						System.out.println("수정한 제목을 입력하세요");
@@ -81,12 +78,12 @@ public class BoardApp {
 						String boWrite = scn.next();
 						Board board = service.getBoard(WriteId);
 						if (board == null) {
-							Board b1 = new Board(now, boWrite, boName, WriteId);
+							Board b1 = new Board(boWrite, boName, WriteId);
 							service.modifyBoard(b1);
 							System.out.println("수정할게시글을 찾을수없어요");
 
 						} else {
-							Board b1 = new Board(now, boWrite, boName, WriteId);
+							Board b1 = new Board(boWrite, boName, WriteId);
 							service.modifyBoard(b1);
 							System.out.println("너굴맨이 수정햇다구요!");
 						}

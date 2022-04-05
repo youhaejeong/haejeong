@@ -1,11 +1,9 @@
 package project;
 
-import java.time.LocalDate;
-
 public class Board {
-	private LocalDate now;
+	private String now; // String
 	private int boardNum;
-	private String boardWrite; // 작성자
+	private String boardWrite; // 내용
 	private String BoardName; // 제목
 	private int writeId;
 
@@ -13,9 +11,14 @@ public class Board {
 
 	}
 
-	public Board(LocalDate now, String boardWrite, String boardName, int writeId) {
-		super();
+	public Board(String now, String boardWrite, String boardName, int writeId) {
 		this.now = now;
+		this.boardWrite = boardWrite;
+		this.BoardName = boardName;
+		this.writeId = writeId;
+	}
+
+	public Board(String boardWrite, String boardName, int writeId) {
 		this.boardWrite = boardWrite;
 		this.BoardName = boardName;
 		this.writeId = writeId;
@@ -42,7 +45,7 @@ public class Board {
 	}
 
 	public void setBoardName(String boardName) {
-		BoardName = boardName;
+		this.BoardName = boardName;
 	}
 
 	public int getWriteId() {
@@ -53,18 +56,18 @@ public class Board {
 		this.writeId = writeId;
 	}
 
-	@Override
-	public String toString() {
-		return "Board [now=" + now + ", boardNum=" + boardNum + ", boardWrite=" + boardWrite + ", BoardName="
-				+ BoardName + ", writeId=" + writeId + "]";
+	public String getNow() {
+		return now;
 	}
 
-//	public long getNow() {
-//		return now;
-//	}
-//
-//	public void setNow(long now) {
-//		this.now = now;
-//	}
+	public void setNow(String now) {
+		this.now = now;
+	}
+
+	@Override
+	public String toString() {
+		return "너굴맨의 목록 [작성시간: " + now + ", 게시글번호: " + boardNum + ", 내용: " + boardWrite + ", 제목: " + BoardName
+				+ ", 닉네임: " + writeId + "]";
+	}
 
 }

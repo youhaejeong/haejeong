@@ -32,7 +32,6 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		conn = getConnect();
 		String sql = " insert into  board(board_date,board_num,board_write,board_name,board_writeid)\r\n"
 				+ "values(sysdate,?,?,?,?)";
-
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setInt(1, newseq);
@@ -58,11 +57,12 @@ public class BoardServiceOracle extends DAO implements BoardService {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
+
 				Board bo = new Board();
 				bo.setBoardNum(rs.getInt("board_num"));
 				bo.setWriteId(rs.getInt("board_writeid"));
 				bo.setBoardName(rs.getString("board_name"));
-
+				bo.setNow(rs.getString("board_date"));
 				list.add(bo);
 
 			}
