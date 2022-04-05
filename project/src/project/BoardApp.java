@@ -1,6 +1,5 @@
 package project;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -10,12 +9,10 @@ public class BoardApp {
 	Scanner scn = new Scanner(System.in);
 
 	public BoardApp() {
-
 	}
 
 	public void execute() {
 		BoardService service = new BoardServiceOracle();
-
 		while (true) {
 			System.out.println("===너굴맨 게시판 메뉴 ======");
 			System.out.println("1.회원가입 2.로그인 ");
@@ -30,9 +27,7 @@ public class BoardApp {
 				user.setUserNo(userId);
 				user.setUserPwd(userpwd);
 				service.insertlogin(user);
-
 				// 회원가입
-
 			} else if (menu == 2) {
 				System.out.println("아이디를 입력하세요");
 				int userId = scn.nextInt();
@@ -41,7 +36,6 @@ public class BoardApp {
 				User login = service.login(userId, userpwd);
 				if (login != null) {
 					System.out.println("너굴맨의 집에 온걸 환영해!");
-
 					int menu2 = 0;
 					System.out.println("====너굴맨의 게시판 선택=====");
 					System.out.println("1.목록  2.작성  3.수정  4.삭제 9.종료");
@@ -53,7 +47,6 @@ public class BoardApp {
 						}
 						// 목록
 					} else if (menu2 == 2) {
-
 						// 작성
 						System.out.println("제목을입력하세요");
 						String boardName = scn.next();
@@ -66,10 +59,8 @@ public class BoardApp {
 						Board board = new Board(boardWrite, boardName, writeId);
 						service.insertBoard(board);
 						System.out.println("너굴맨 저장!!!");
-
 					} else if (menu2 == 3) {
 						// 수정
-
 						System.out.println("수정하실 작성자의 아이디를 선택하세요");
 						int WriteId = scn.nextInt();
 						System.out.println("수정한 제목을 입력하세요");
@@ -81,13 +72,11 @@ public class BoardApp {
 							Board b1 = new Board(boWrite, boName, WriteId);
 							service.modifyBoard(b1);
 							System.out.println("수정할게시글을 찾을수없어요");
-
 						} else {
 							Board b1 = new Board(boWrite, boName, WriteId);
 							service.modifyBoard(b1);
 							System.out.println("너굴맨이 수정햇다구요!");
 						}
-
 					} else if (menu2 == 4) {
 						// 삭제
 						System.out.println("삭제하실 게시글을 선택하세요");
@@ -101,7 +90,6 @@ public class BoardApp {
 					System.out.println("로그인에 실패하셨습니다.");
 				}
 			}
-
 		} // end of while
 		System.out.println("end of prog");
 	}

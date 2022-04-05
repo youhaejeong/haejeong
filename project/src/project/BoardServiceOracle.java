@@ -59,6 +59,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 			while (rs.next()) {
 
 				Board bo = new Board();
+				bo.setBoardWrite(rs.getString("board_write"));
 				bo.setBoardNum(rs.getInt("board_num"));
 				bo.setWriteId(rs.getInt("board_writeid"));
 				bo.setBoardName(rs.getString("board_name"));
@@ -99,7 +100,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 	@Override
 	public void deleteBoard(String bno) {
 		conn = getConnect();
-		String sql = "delete from  board\r\n" + "     where board_num=?";
+		String sql = "delete from  board\r\n" + "where board_num=?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, bno);
