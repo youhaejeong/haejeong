@@ -8,12 +8,12 @@ public class BoardServiceOracle extends DAO implements BoardService {
 	@Override
 	public int boardNum() {
 		conn = getConnect();
-		String sql1 = "select max(board_num) from board_inf";
+		String sql1 = "select max(board_num) from  board";
 		try {
 			psmt = conn.prepareStatement(sql1);
 			rs = psmt.executeQuery();
 			if (rs.next()) {
-				return rs.getInt("board_num") + 1;
+				return rs.getInt(1) + 1;
 
 			}
 
@@ -30,18 +30,17 @@ public class BoardServiceOracle extends DAO implements BoardService {
 	public void insertBoard(Board board) {
 		int newseq = boardNum();
 		conn = getConnect();
-		String sql = " insert into board_inf(board_date,board_num,board_write,board_name,board_writeid)\r\n"
-				+ "values(?,?,?,?,?)";
+		String sql = " insert into  board(board_date,board_num,board_write,board_name,board_writeid)\r\n"
+				+ "values(sysdate,?,?,?,?)";
 
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(2, newseq);
-			psmt.setString(3, board.getBoardWrite());
-			psmt.setString(4, board.getBoardName());
-			psmt.setString(5, board.getWriteId());
-			int m = psmt.executeUpdate();
-			System.out.println(m + "건을 너굴맨이 입력 완료!");
-
+			psmt.setInt(1, newseq);
+			psmt.setString(2, board.getBoardWrite());
+			psmt.setString(3, board.getBoardName());
+			psmt.setInt(4, board.getWriteId());
+			int r = psmt.executeUpdate();
+			System.out.println(r + "건입력");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -54,14 +53,14 @@ public class BoardServiceOracle extends DAO implements BoardService {
 	public List<Board> BoardList() {
 		List<Board> list = new ArrayList<Board>();
 		conn = getConnect();
-		String sql = "select * from board_inf order by board_num";
+		String sql = "select * from  board order by board_num";
 		try {
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
 			while (rs.next()) {
 				Board bo = new Board();
 				bo.setBoardNum(rs.getInt("board_num"));
-				bo.setWriteId(rs.getString("board_writeid"));
+				bo.setWriteId(rs.getInt("board_writeid"));
 				bo.setBoardName(rs.getString("board_name"));
 
 				list.add(bo);
@@ -79,7 +78,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 	public void modifyBoard(Board board) {
 
 		conn = getConnect();
-		String sql = "update board_inf\r\n" //
+		String sql = "update  board\r\n" //
 				+ "set board_name = ?,\r\n" //
 				+ "    board_write = ?\r\n"//
 				+ "where board_writeid= ?";
@@ -87,7 +86,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, board.getBoardName());
 			psmt.setString(2, board.getBoardWrite());
-			psmt.setString(3, board.getWriteId());
+			psmt.setInt(3, board.getWriteId());
 			int r = psmt.executeUpdate();
 			System.out.println(r + "건을 너굴맨이 수정했다귯!");
 		} catch (SQLException e) {
@@ -100,7 +99,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 	@Override
 	public void deleteBoard(String bno) {
 		conn = getConnect();
-		String sql = "delete from board_inf\r\n" + "     where board_num=?";
+		String sql = "delete from  board\r\n" + "     where board_num=?";
 		try {
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, bno);
@@ -115,15 +114,19 @@ public class BoardServiceOracle extends DAO implements BoardService {
 
 	@Override
 	public Board getBoard(int bno) {
-		List<Board> list = new ArrayList<Board>();
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).getBoardNum() == bno) {
-				return list.get(i);
-			}
-
+		Board board = new Board();
+		conn = getConnect();
+		String sql = "select * from  board where board_num=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, bno);
+			psmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			disconnect();
 		}
-
-		return null;
+		return board;
 	}
 
 	@Override

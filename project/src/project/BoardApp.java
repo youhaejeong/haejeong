@@ -63,7 +63,9 @@ public class BoardApp {
 						String boardWrite = scn.next();
 						System.out.println("제목을입력하세요");
 						String boardName = scn.next();
-						Board board = new Board(now, boardWrite, boardName, userId);
+						System.out.println("닉네임을 입력하세요");
+						int writeId = scn.nextInt();
+						Board board = new Board(now, boardWrite, boardName, writeId);
 						service.insertBoard(board);
 						System.out.println("너굴맨 저장!!!");
 

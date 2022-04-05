@@ -19,6 +19,4 @@ public interface BoardService {
 
 	public User login(int userId, int userpwd);
 
-
-
 }

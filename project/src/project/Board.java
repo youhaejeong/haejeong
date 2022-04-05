@@ -7,24 +7,18 @@ public class Board {
 	private int boardNum;
 	private String boardWrite; // 작성자
 	private String BoardName; // 제목
-	private String writeId;
+	private int writeId;
 
 	public Board() {
 
 	}
 
-	public Board(LocalDate now, int boardNum, String boardWrite, String boardName, String writeId) {
+	public Board(LocalDate now, String boardWrite, String boardName, int writeId) {
 		super();
 		this.now = now;
-		this.boardNum = boardNum;
 		this.boardWrite = boardWrite;
 		this.BoardName = boardName;
 		this.writeId = writeId;
-	}
-
-	public Board(LocalDate now, String boardWrite, String boardName, int userId) {
-		this.boardWrite = boardWrite;
-		this.BoardName = boardName;
 	}
 
 	public int getBoardNum() {
@@ -51,11 +45,11 @@ public class Board {
 		BoardName = boardName;
 	}
 
-	public String getWriteId() {
+	public int getWriteId() {
 		return writeId;
 	}
 
-	public void setWriteId(String writeId) {
+	public void setWriteId(int writeId) {
 		this.writeId = writeId;
 	}
 
