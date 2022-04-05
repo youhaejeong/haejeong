@@ -1,30 +1,30 @@
 package project;
 
 public class User {
-	private String userNo;
-	private String userPwd;
+	private int userNo;
+	private int userPwd;
 
 	public User() {
 
 	}
 
-	public String getUserNo() {
+	public int getUserNo() {
 		return userNo;
 	}
 
-	public void setUserNo(String userNo) {
+	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
 
-	public String getUserPwd() {
+	public int getUserPwd() {
 		return userPwd;
 	}
 
-	public void setUserPwd(String userPwd) {
+	public void setUserPwd(int userPwd) {
 		this.userPwd = userPwd;
 	}
 
-	public User(String userNo, String userPwd) {
+	public User(int userNo, int userPwd) {
 		super();
 		this.userNo = userNo;
 		this.userPwd = userPwd;

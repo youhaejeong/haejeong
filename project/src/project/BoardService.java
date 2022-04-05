@@ -3,7 +3,8 @@ package project;
 import java.util.List;
 
 public interface BoardService {
-	public void boardNum(Board board);
+	public int boardNum();
+
 	public void insertBoard(Board board);
 
 	public List<Board> BoardList();
@@ -13,5 +14,11 @@ public interface BoardService {
 	public void deleteBoard(String bno);
 
 	public Board getBoard(int writeId);
+
+	public void insertlogin(User user);
+
+	public User login(int userId, int userpwd);
+
+
 
 }

@@ -1,27 +1,28 @@
 package project;
 
+import java.time.LocalDate;
+
 public class Board {
-private String date;
+	private LocalDate now;
 	private int boardNum;
 	private String boardWrite; // 작성자
 	private String BoardName; // 제목
-	private int writeId;
-	public static int lastIndex = 1;
+	private String writeId;
 
 	public Board() {
 
 	}
 
-	public Board(String date,int boardNum, String boardWrite, String boardName, int writeId) {
+	public Board(LocalDate now, int boardNum, String boardWrite, String boardName, String writeId) {
 		super();
-		this.date=date;
+		this.now = now;
 		this.boardNum = boardNum;
 		this.boardWrite = boardWrite;
 		this.BoardName = boardName;
 		this.writeId = writeId;
 	}
 
-	public Board(String boardWrite, String boardName) {
+	public Board(LocalDate now, String boardWrite, String boardName, int userId) {
 		this.boardWrite = boardWrite;
 		this.BoardName = boardName;
 	}
@@ -50,20 +51,26 @@ private String date;
 		BoardName = boardName;
 	}
 
-	public int getWriteId() {
+	public String getWriteId() {
 		return writeId;
 	}
 
-	public void setWriteId(int writeId) {
+	public void setWriteId(String writeId) {
 		this.writeId = writeId;
 	}
 
-	public String getDate() {
-		return date;
+	@Override
+	public String toString() {
+		return "Board [now=" + now + ", boardNum=" + boardNum + ", boardWrite=" + boardWrite + ", BoardName="
+				+ BoardName + ", writeId=" + writeId + "]";
 	}
 
-	public void setDate(String date) {
-		this.date = date;
-	}
+//	public long getNow() {
+//		return now;
+//	}
+//
+//	public void setNow(long now) {
+//		this.now = now;
+//	}
 
 }
