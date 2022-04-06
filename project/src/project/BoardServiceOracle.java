@@ -143,6 +143,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 			if (rs.next()) {
 				user1.setUserNo(rs.getInt("user_no"));
 				user1.setUserPwd(rs.getInt("user_pwd"));
+				return user1;
 
 			}
 		} catch (SQLException e) {
@@ -150,7 +151,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		} finally {
 			disconnect();
 		}
-		return user1;
+		return null;
 	}
 
 	@Override
