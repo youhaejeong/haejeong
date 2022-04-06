@@ -6,6 +6,7 @@ public class Board {
 	private String boardWrite; // 내용
 	private String BoardName; // 제목
 	private int writeId;
+	private int readCount;
 
 	public Board() {
 
@@ -64,10 +65,18 @@ public class Board {
 		this.now = now;
 	}
 
+	public int getReadCount() {
+		return readCount;
+	}
+
+	public void setReadCount(int readCount) {
+		this.readCount = readCount;
+	}
+
 	@Override
 	public String toString() {
 		return "너굴맨의 목록 [작성시간: " + now + ", 게시글번호: " + boardNum + ", 내용: " + boardWrite + ", 제목: " + BoardName
-				+ ", 닉네임: " + writeId + "]";
+				+ ", 닉네임: " + writeId + ", 조회수: " + readCount + "]";
 	}
 
 }

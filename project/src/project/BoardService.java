@@ -19,4 +19,7 @@ public interface BoardService {
 
 	public User login(int userId, int userpwd);
 
+//	public void readCount(Board board); //조회수 증가 
+
+	public Board inBoard(Board board);
 }

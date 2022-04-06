@@ -171,4 +171,48 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		}
 	}
 
+	@Override
+	public Board inBoard(Board board) {
+		conn = getConnect();
+		String sql = "select board_name,board_writeid,board_write,board_date from board where board_num = ?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, board.getBoardNum());
+			rs = psmt.executeQuery();
+			while (rs.next()) {
+				Board bo = new Board();
+				bo.setBoardWrite(rs.getString("board_write"));
+				bo.setBoardNum(rs.getInt("board_num"));
+				bo.setWriteId(rs.getInt("board_writeid"));
+				bo.setBoardName(rs.getString("board_name"));
+				bo.setNow(rs.getString("board_date"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return board;
+	}
+
+//	@Override
+//	public void readCount(Board board) {
+//		int count = 0;
+//		conn = getConnect();
+//		String sql = "select read_count from board where board_num = ?";
+//		String sql2 = "update board set read_count=? where board_num=?";
+//		try {
+//			psmt = conn.prepareStatement(sql);
+//			psmt.setInt(1, board.getBoardNum());
+//			rs = psmt.executeQuery();
+//			if (rs.next()) {
+//				count = rs.getInt(1);
+//				count++;
+//			}
+//			psmt = conn.prepareStatement(sql2);
+//			psmt.setInt(1, count);
+//			psmt.setInt(2, board.getBoardNum());
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
+
 }

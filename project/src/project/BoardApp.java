@@ -45,12 +45,13 @@ public class BoardApp {
 					while (true) {
 						int menu2 = 0;
 						System.out.println("=========너굴맨의 게시판 선택=========");
-						System.out.println("1.목록  2.작성  3.수정  4.삭제 9.종료");
+						System.out.println("1.목록  2.작성  3.수정  4.삭제  5.게시글 선택 9.종료");
 						System.out.println("선택>>");
 						menu2 = scn.nextInt();
 						if (menu2 == 1) {
 							List<Board> list = service.BoardList();
 							for (Board b : list) {
+//								service.readCount(b);
 								System.out.println(b.toString());
 							}
 							// 목록
@@ -90,6 +91,12 @@ public class BoardApp {
 							System.out.println("삭제하실 게시글을 선택하세요");
 							String boardNo = scn.next();
 							service.deleteBoard(boardNo);
+
+						} else if (menu2 == 5) {
+							System.out.println("게시글을 선택하세요");
+							int num = scn.nextInt();
+							Board board = service.getBoard(num);
+
 						} else if (menu2 == 9) {
 							System.out.println("프로그램을 종료합니다");
 							break;
