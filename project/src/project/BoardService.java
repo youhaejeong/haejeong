@@ -17,9 +17,9 @@ public interface BoardService {
 
 	public void insertlogin(User user);
 
-	public User login(int userId, int userpwd);
+	public User login(int userId, int userpwd); //로그인
 
 //	public void readCount(Board board); //조회수 증가 
 
-	public Board inBoard(Board board);
+	public Board inBoard(int board); //상세보기
 }

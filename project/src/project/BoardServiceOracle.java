@@ -172,25 +172,29 @@ public class BoardServiceOracle extends DAO implements BoardService {
 	}
 
 	@Override
-	public Board inBoard(Board board) {
+	public Board inBoard(int board) {
 		conn = getConnect();
-		String sql = "select board_name,board_writeid,board_write,board_date from board where board_num = ?";
+		Board bo = new Board();
+
+		String sql = "select board_name,board_writeid,board_write,board_date,board_num from board where board_num = ?";
 		try {
 			psmt = conn.prepareStatement(sql);
-			psmt.setInt(1, board.getBoardNum());
+			psmt.setInt(1, board);
 			rs = psmt.executeQuery();
-			while (rs.next()) {
-				Board bo = new Board();
-				bo.setBoardWrite(rs.getString("board_write"));
-				bo.setBoardNum(rs.getInt("board_num"));
-				bo.setWriteId(rs.getInt("board_writeid"));
+			if (rs.next()) {
 				bo.setBoardName(rs.getString("board_name"));
+				bo.setWriteId(rs.getInt("board_writeid"));
+				bo.setBoardWrite(rs.getString("board_write"));
 				bo.setNow(rs.getString("board_date"));
+				bo.setBoardNum(rs.getInt("board_num"));
+				return bo;
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			disconnect();
 		}
-		return board;
+		return null;
 	}
 
 //	@Override
