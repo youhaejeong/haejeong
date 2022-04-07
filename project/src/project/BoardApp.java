@@ -20,7 +20,7 @@ public class BoardApp {
 		int userpwd = 0;
 		while (true) {
 			System.out.println("===너굴맨 게시판 메뉴 ======");
-			System.out.println("1.회원가입 2.로그인 ");
+			System.out.println("1.회원가입 2.로그인 3.계정삭제 9.종료");
 			System.out.println("메뉴선택>>>>>");
 			int menu = 0;
 			menu = scn.nextInt();
@@ -86,7 +86,7 @@ public class BoardApp {
 					while (true) {
 						int menu2 = 0;
 						System.out.println("=========너굴맨의 게시판 선택=========");
-						System.out.println("1.목록  2.작성  3.수정  4.삭제  5.게시글 선택 9.종료");
+						System.out.println("1.목록  2.작성  3.수정  4.삭제  5.게시글 선택 9.로그아웃");
 						System.out.println("선택>>");
 						menu2 = scn.nextInt();
 						scn.nextLine();
@@ -153,19 +153,27 @@ public class BoardApp {
 								System.out.println(bo.toString());
 
 						} else if (menu2 == 9) {
-							System.out.println("프로그램을 종료합니다");
-							break;
+							System.out.println("잘가! 너굴맨은 너를 기다려!");
+//							break;
 
 						}
-
+						break;
 					} // end of while
-					break;
 
 				} // 계정이 일치하지 않을때 접근 못하게
 				else if (login == null) {
-					System.out.println("침입자는 가랏!");
+					System.out.println("너굴맨이 계정을 못찾앗어,,,,");
 				}
 
+			} else if (menu == 3) {
+				// 계정삭제
+				System.out.println("삭제할 계정!");
+				System.out.println("입력>>");
+				userId = scn.nextInt();
+				service.deletelogin(userId);
+			} else if (menu == 9) {
+				System.out.println("프로그램을 종료합니다");
+				break;
 			}
 
 		} // end of while

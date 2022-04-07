@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardServiceOracle extends DAO implements BoardService {
+	// 게시판 넘버 자동 매기기
 	@Override
 	public int boardNum() {
 		conn = getConnect();
@@ -26,6 +27,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		return -1;
 	}
 
+//입력
 	@Override
 	public void insertBoard(Board board) {
 		int newseq = boardNum();
@@ -48,6 +50,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 
 	}
 
+//전체리스트
 	@Override
 	public List<Board> BoardList() {
 		List<Board> list = new ArrayList<Board>();
@@ -75,6 +78,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		return list;
 	}
 
+//수정
 	@Override
 	public void modifyBoard(Board board) {
 
@@ -97,6 +101,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		}
 	}
 
+	// 삭제
 	@Override
 	public void deleteBoard(String bno) {
 		conn = getConnect();
@@ -113,6 +118,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		}
 	}
 
+//수정을 위한 한건조회
 	@Override
 	public Board getBoard(int bno) {
 		Board board = new Board();
@@ -130,6 +136,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		return board;
 	}
 
+//로그인
 	@Override
 	public User login(int userId, int userpwd) {
 		User user1 = new User();
@@ -154,6 +161,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		return null;
 	}
 
+//가입
 	@Override
 	public void insertlogin(User user) {
 		conn = getConnect();
@@ -171,6 +179,7 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		}
 	}
 
+//상세보기
 	@Override
 	public Board inBoard(int board) {
 		conn = getConnect();
@@ -197,6 +206,37 @@ public class BoardServiceOracle extends DAO implements BoardService {
 		return null;
 	}
 
+	// 계정 삭제
+	@Override
+	public void deletelogin(int bno) {
+		conn = getConnect();
+		String sql = "delete from board_info\r\n" + "where user_no=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, bno);
+			int r = psmt.executeUpdate();
+			System.out.println("너굴맨이 삭제햇다리");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+//	conn = getConnect();
+//	String sql = "delete from  board\r\n" + "where board_num=?";
+//	try {
+//		psmt = conn.prepareStatement(sql);
+//		psmt.setString(1, bno);
+//		int r = psmt.executeUpdate();
+//		System.out.println(r + "건을 너굴맨이 삭제했다리!");
+//	} catch (SQLException e) {
+//		e.printStackTrace();
+//	} finally {
+//		disconnect();
+//	}
+//}
+
+//조회수
 //	@Override
 //	public void readCount(Board board) {
 //		int count = 0;
