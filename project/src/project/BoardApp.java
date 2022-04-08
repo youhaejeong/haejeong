@@ -23,7 +23,16 @@ public class BoardApp {
 			System.out.println("1.회원가입 2.로그인 3.계정삭제 9.종료");
 			System.out.println("메뉴선택>>>>>");
 			int menu = 0;
-			menu = scn.nextInt();
+			while (true) {
+				try {
+					menu = scn.nextInt();
+					break;
+				} catch (InputMismatchException e) {
+					System.out.println("숫자로입력해주세요");
+					uId = scn.next();
+				}
+			}
+
 			if (menu == 1) {
 				System.out.println("아이디를 입력하세요");
 				System.out.println("입력>>");
@@ -88,14 +97,36 @@ public class BoardApp {
 						System.out.println("=========너굴맨의 게시판 선택=========");
 						System.out.println("1.목록  2.작성  3.수정  4.삭제  5.게시글 선택 9.로그아웃");
 						System.out.println("선택>>");
-						menu2 = scn.nextInt();
+//						while (true) {
+//							try {
+//								writeId = scn.nextInt();
+//								break;
+//							} catch (InputMismatchException e) {
+//								System.out.println("숫자로입력해주세요");
+//								uId = scn.next();
+//							}
+//						}
+						while (true) {
+							try {
+								menu2 = scn.nextInt();
+								break;
+							} catch (InputMismatchException e) {
+								System.out.println("숫자로입력해주세요");
+								uId = scn.next();
+							}
+						}
 						scn.nextLine();
 						int writeId = 0;
 						if (menu2 == 1) {
 							List<Board> list = service.BoardList();
+							System.out.println(
+									"✧･ﾟ: *✧･ﾟ:*✧･ﾟ: *✧･ﾟ:*✧･ﾟ: *✧･ﾟ:*너굴맨 목록*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧\r\n");
 							for (Board b : list) {
 //								service.readCount(b);
-								System.out.println(b.toString());
+//								System.out.println(b.toString());
+
+								System.out.println(b.binfo());
+
 							}
 							// 목록
 						} else if (menu2 == 2) {
@@ -153,13 +184,14 @@ public class BoardApp {
 								System.out.println(bo.toString());
 
 						} else if (menu2 == 9) {
-							System.out.println("잘가! 너굴맨은 너를 기다려!");
-//							break;
+							System.out.println(
+									"＼😆へ　 へ😁ヘ　 く😎/\r\n" + "ヘ/ 　　  ( ヘ　　 ( ヘ\r\n" + "　 >　 　 <　　　　く\r\n" + "");
+							break;
 
 						}
-						break;
+//						break;
 					} // end of while
-
+//					break;
 				} // 계정이 일치하지 않을때 접근 못하게
 				else if (login == null) {
 					System.out.println("너굴맨이 계정을 못찾앗어,,,,");
@@ -177,6 +209,6 @@ public class BoardApp {
 			}
 
 		} // end of while
-		System.out.println("end of prog");
+		System.out.println("＼😆へ　 へ😁ヘ　 く😎/\r\n" + "ヘ/ 　　  ( ヘ　　 ( ヘ\r\n" + "　 >　 　 <　　　　く\r\n" + "");
 	}
 }

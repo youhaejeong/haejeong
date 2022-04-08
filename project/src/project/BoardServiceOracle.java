@@ -222,41 +222,27 @@ public class BoardServiceOracle extends DAO implements BoardService {
 
 	}
 
-//	conn = getConnect();
-//	String sql = "delete from  board\r\n" + "where board_num=?";
-//	try {
-//		psmt = conn.prepareStatement(sql);
-//		psmt.setString(1, bno);
-//		int r = psmt.executeUpdate();
-//		System.out.println(r + "건을 너굴맨이 삭제했다리!");
-//	} catch (SQLException e) {
-//		e.printStackTrace();
-//	} finally {
-//		disconnect();
-//	}
-//}
-
 //조회수
-//	@Override
-//	public void readCount(Board board) {
-//		int count = 0;
-//		conn = getConnect();
-//		String sql = "select read_count from board where board_num = ?";
-//		String sql2 = "update board set read_count=? where board_num=?";
-//		try {
-//			psmt = conn.prepareStatement(sql);
-//			psmt.setInt(1, board.getBoardNum());
-//			rs = psmt.executeQuery();
-//			if (rs.next()) {
-//				count = rs.getInt(1);
-//				count++;
-//			}
-//			psmt = conn.prepareStatement(sql2);
-//			psmt.setInt(1, count);
-//			psmt.setInt(2, board.getBoardNum());
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//	}
+	@Override
+	public void readCount(Board board) {
+		int count = 0;
+		conn = getConnect();
+		String sql = "select read_count from board where board_num = ?";
+		String sql2 = "update board set read_count=? where board_num=?";
+		try {
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, board.getBoardNum());
+			rs = psmt.executeQuery();
+			if (rs.next()) {
+				count = rs.getInt(1);
+				count++;
+			}
+			psmt = conn.prepareStatement(sql2);
+			psmt.setInt(1, count);
+			psmt.setInt(2, board.getBoardNum());
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 
 }

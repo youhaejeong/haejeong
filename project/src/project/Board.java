@@ -73,6 +73,18 @@ public class Board {
 		this.readCount = readCount;
 	}
 
+	public String binfo() {
+		String str = // "✧･ﾟ: *✧･ﾟ:*✧･ﾟ: *✧･ﾟ:*✧･ﾟ: *✧･ﾟ:*너굴맨 목록*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧\r\n"
+						// //
+				"게시글 번호  " + this.boardNum //
+
+						+ "\t 게시글 제목  " + this.BoardName + "\r\n"//
+
+						+ "내용 " + this.boardWrite + "\r\n";
+//	+"✧･ﾟ: *✧･ﾟ:*✧･ﾟ: *✧･ﾟ:*✧･ﾟ: *✧･ﾟ:*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧*:･ﾟ✧\r\n";
+		return str;
+	}
+
 	@Override
 	public String toString() {
 		return "너굴맨의 목록 [작성시간: " + now + ", 게시글번호: " + boardNum + ", 내용: " + boardWrite + ", 제목: " + BoardName

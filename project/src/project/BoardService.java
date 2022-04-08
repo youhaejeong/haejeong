@@ -19,10 +19,10 @@ public interface BoardService {
 
 	public User login(int userId, int userpwd); // 로그인
 
-//	public void readCount(Board board); //조회수 증가 
-
 	public Board inBoard(int board); // 상세보기
 
 	public void deletelogin(int bno);
+
+	public void readCount(Board board); // 조회수 증가
 
 }
